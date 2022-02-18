@@ -1,0 +1,30 @@
+<div class ="field-account">
+ <h1>予約内容確認</h1>
+  <p>開始日</p>
+    <%= @reservation.start_date.to_s(:datetime_jp) %>
+  <hr>
+  <p>終了日</p>
+    <%= @reservation.end_date.to_s(:datetime_jp) %>
+  <hr>
+  <p>人数</p>
+    <%= @reservation.persons %>人
+  <hr>
+  <p>日数</p>
+    <%= @reservation.many_days %>日
+  <hr>
+  <p>合計金額</p>
+    ¥<%= @reservation.total_price %>
+  <hr>
+  <%= form_for @reservation do |f| %>
+    <%= f.hidden_field :id %> 
+    <%= f.hidden_field :start_date %>
+    <%= f.hidden_field :end_date %>
+    <%= f.hidden_field :persons %>
+    <%= f.hidden_field :many_days %>
+    <%= f.hidden_field :total_price %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit '予約を確定する', class:'btn-room' %>
+  <% end %>
+  <%= link_to 'ルーム詳細に戻る', :back, class:'btn-room' %>
+</div>
