@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   get 'rooms/posts', to: 'rooms#posts'
+  get "/rooms/search" => "rooms#search", as: 'search'
   
   resources :users
   resources :rooms

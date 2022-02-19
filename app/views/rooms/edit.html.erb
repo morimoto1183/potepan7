@@ -1,0 +1,43 @@
+<div class ="field-account">
+ <h1>ルーム編集</h1>
+
+ <% if @room.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@room.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @room.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+ <% end %>
+
+ <%= form_for @room do |f| %>
+  <div class="field">
+    <%= f.label :title, "ルーム名", class: "label" %><br>
+    <%= f.text_field :title, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "ルーム紹介", class: "label" %><br>
+    <%= f.text_area :introduction, class: "textarea" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所", class: "label" %><br>
+    <%= f.text_field :address, class: "input" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :price, "金額", class: "label" %><br>
+    <%= f.text_field :price, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "ルーム画像", class: "label" %><br>
+    <%= f.file_field :image, class: "input" %>
+  </div>
+  
+  <%= f.submit "更新", class:"btn-room" %>
+  <% end %>
+</div>

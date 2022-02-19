@@ -1,0 +1,15 @@
+<div class ="field-account">
+ <h1>マイページ</h1>
+  <%= image_tag @user.icon.url, width: '40', height: 'auto' %>
+  <hr>
+  <p>紹介文</p>
+   <%= current_user.profile %>
+  <hr>
+  <p>メールアドレス</p>
+   <%= current_user.email %>
+  <hr>
+  <p>パスワード</p>
+   ******
+  <hr>
+  <%= link_to '編集', edit_user_path(@user), class:"btn-room" %> 
+</div>
