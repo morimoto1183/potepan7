@@ -10,8 +10,11 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     @room.user_id = current_user.id
-    @room.save
-    redirect_to :rooms
+    if @room.save
+     redirect_to :rooms
+    else
+     render "new"
+    end
   end
 
   def show
