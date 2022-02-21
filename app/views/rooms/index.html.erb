@@ -1,0 +1,25 @@
+<h1>ルーム検索</h1>
+ <%= form_tag(search_path, :method => 'get') do %>
+   <%= text_field_tag :search_area, params[:search_area], class: "form-control", id: "search", placeholder: "エリアを入力"%>
+   <%= submit_tag '検索', class: "btn-search" %>
+ <% end %>
+
+ <%= form_tag(search_path, :method => 'get') do %>
+   <%= text_field_tag :search, params[:search], class: "form-control", id: "search", placeholder: "キーワードを入力"%>
+   <%= submit_tag '検索', class: "btn-search" %>
+ <% end %>﻿
+
+<div class ="room-index">
+  <% @rooms.each do |room| %>
+   <div class ="room-frame">
+     <%= link_to room_path(room) do %>
+      <%= image_tag room.image.url, width: '300', height: 'auto' %><br>
+     <% end %>
+     <%= link_to room_path(room) do %>
+      <%= room.title %><br>
+     <% end %>
+     住所:<%= room.address %><br>
+     料金:¥<%= room.price %><br>
+    </div>
+   <% end %>
+</div>

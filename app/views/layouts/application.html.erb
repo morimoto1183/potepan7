@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StayApp</title>
+    <title>PoteShare test</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,38 @@
   </head>
 
   <body>
+   <header>
+    <div class ="header-background">
+     <%= link_to 'Pote Share', '/', class:'header-logo' %>
+      <div class="header-menu">
+       <% if user_signed_in? %> 
+        <ul class="header-ul">
+          <li class="header-li"><%= link_to 'ルーム登録', '/rooms/new/', class:'header-btn' %></li>
+          <li class="header-li"><%= link_to '予約済みルーム一覧', '/reservations/', class:'header-btn' %></li>
+          <li class="header-li"><%= link_to '登録済みルーム一覧', '/rooms/posts/', class:'header-btn' %></li>
+          <li class="header-li"><%= link_to 'マイページ', user_path(current_user), class:'header-btn' %></li>
+          <li class="header-li"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-btn' %></li>
+        </ul>
+       <% else %> 
+        <ul class="header-ul">
+          <li class="header-li"><%= link_to 'ログイン', new_user_session_path, class:'header-btn' %></li>
+          <li class="header-li"><%= link_to '新規登録', new_user_registration_path, class:'header-btn' %></li>
+        </ul>
+       <% end %>          
+      </div>
+    </div>
+   </header>
+   <main>
+     <% if flash[:notice] %>
+      <%= notice %>
+     <% end %>
+     <% if flash[:alert] %>
+      <%= alert %>
+     <% end %>
+    </main>
     <%= yield %>
+    <footer>
+      <p class ="footer-p">© 2022 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

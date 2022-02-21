@@ -1,0 +1,27 @@
+<div class ="field-account">
+ <h1>ルーム登録情報</h1>
+  <%= render "shared/error",obj: @room %>
+  <%= form_for @room do |f| %>
+   <div class="field">
+    <%= f.label :ルーム名 %><br>
+    <%= f.text_field :title %>
+   </div>
+   <div class="field">
+    <%= f.label :ルーム紹介 %><br>
+    <%= f.text_area :introduction %>
+   </div>
+   <div class="field">
+    <%= f.label :住所 %><br>
+    <%= f.text_field :address %>
+   </div>
+   <div class="field">
+    <%= f.label :金額 %><br>
+    <%= f.text_field :price %>
+   </div>
+   <div class="field">
+    <%= f.label :ルーム画像 %><br>
+    <%= f.file_field :image %>
+   </div>
+   <%= f.submit "登録", class:'btn-room' %>
+ <% end %>
+</div>

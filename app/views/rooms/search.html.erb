@@ -1,0 +1,15 @@
+<h2>ルーム一覧"<%= @search_result %>"の検索結果(<%= @rooms.count %>件)</h2>
+ <div class ="room-index">
+  <% @rooms.each do |room| %>
+   <div class ="room-frame">
+     <%= link_to room_path(room) do %>
+      <%= image_tag room.image.url, width: '300', height: 'auto' %><br>
+     <% end %>
+     <%= link_to room_path(room) do %>
+      <%= room.title %><br>
+     <% end %>
+     住所:<%= room.address %><br>
+     料金:¥<%= room.price %><br>
+    </div>
+   <% end %>
+</div>
