@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2022-02-14 08:57:24
+  end_date: 2022-02-14 08:57:24
+  total_price: MyString
+
+two:
+  start_date: 2022-02-14 08:57:24
+  end_date: 2022-02-14 08:57:24
+  total_price: MyString
